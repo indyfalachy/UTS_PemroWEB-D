@@ -6,7 +6,7 @@ class Country
     private $conn;
     private $table_name = "country";
 
-    // object properties
+    // model properties
     public $code;
     public $name;
 

@@ -64,7 +64,7 @@ if($total_rows>0){
                     echo "</a>";
  
                     // delete city button
-                    echo "<a delete-id='{$id}' class='btn btn-danger delete-object'>";
+                    echo "<a delete-id='{$id}' class='btn btn-danger delete-model'>";
                         echo "<span class='glyphicon glyphicon-remove'></span> Delete";
                     echo "</a>";
  

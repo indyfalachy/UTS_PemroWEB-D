@@ -13,7 +13,7 @@
 
 <script>
 // JavaScript for deleting city
-$(document).on('click', '.delete-object', function(){
+$(document).on('click', '.delete-model', function(){
  
     var id = $(this).attr('delete-id');
  
@@ -33,7 +33,7 @@ $(document).on('click', '.delete-object', function(){
  
             if(result==true){
                 $.post('delete_city.php', {
-                    object_id: id
+                    model_id: id
                 }, function(data){
                     location.reload();
                 }).fail(function() {

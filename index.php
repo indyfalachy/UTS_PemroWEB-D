@@ -2,13 +2,13 @@
 // core.php holds pagination variables
 include_once 'config/core.php';
  
-// include database and object files
+// include database and model files
 include_once 'config/database.php';
-// include_once 'objects/city.php';
-include_once 'objects/country.php';
-include_once 'objects/city.php';
+// include_once 'model/city.php';
+include_once 'model/country.php';
+include_once 'model/city.php';
  
-// instantiate database and city object
+// instantiate database and city model
 $database = new Database();
 $db = $database->getConnection();
  

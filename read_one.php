@@ -2,16 +2,16 @@
 // get ID of the city to be read
 $id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
  
-// include database and object files
+// include database and model files
 include_once 'config/database.php';
-include_once 'objects/city.php';
-include_once 'objects/country.php';
+include_once 'model/city.php';
+include_once 'model/country.php';
  
 // get database connection
 $database = new Database();
 $db = $database->getConnection();
  
-// prepare objects
+// prepare model
 $city = new city($db);
 $country = new Country($db);
  
