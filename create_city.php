@@ -1,10 +1,8 @@
 <?php
-// include database and model files
 include_once 'config/database.php';
 include_once 'model/country.php';
 include_once 'model/city.php';
  
-// instantiate database and city model
 $database = new Database();
 $db = $database->getConnection();
  
@@ -12,13 +10,12 @@ $city = new City($db);
 $country = new Country($db);
 
 
-// set page headers
 $page_title = "Create City";
 include_once "layout_header.php";
 
 
 
-// contents will be here
+
 echo "<div class='right-button-margin'>";
 echo "<a href='index.php' class='btn btn-default pull-right'>Read City</a>";
 echo "</div>";
@@ -26,7 +23,6 @@ echo "</div>";
 
 
 
-<!-- 'create city' html form will be here -->
 
 <?php
 if($_POST){
@@ -44,7 +40,7 @@ if($_POST){
     $errorMsg=  "error : Please enter number.";
     $code= "2";
   }
-  //check if the number field is numeric
+
   elseif(is_numeric(trim($population)) == false){
     $errorMsg=  "error : Please enter numeric value.";
     $code= "2";
@@ -57,7 +53,7 @@ if($_POST){
     $code= "4";
   } 
 else{
-  //final code will execute here.
+
   $city->name = $_POST['name'];
   $city->district = $_POST['district'];
   $city->population = $_POST['population'];
@@ -69,7 +65,6 @@ else{
 
   }
 
-  // if unable to create the city, tell the user
   else {
       echo "<div class='alert alert-danger'>Unable to create city.</div>";
   }
@@ -77,12 +72,6 @@ else{
 }
 
 
-// if the form was submitted - PHP OOP CRUD Tutorial
-// if ($_POST) {
-
-//     // set city property values
-   
-// }
 ?>
 
 
@@ -127,7 +116,6 @@ else{
                 // read the city categories from the database
                 $stmt = $country->read();
 
-                // put them in a select drop-down
                 echo "<select class='form-control' name='countrycode'>";
                 echo "<option value='0'>Select country...</option>";
 

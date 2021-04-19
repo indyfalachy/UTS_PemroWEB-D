@@ -2,11 +2,9 @@
 class Country
 {
 
-    // database connection and table name
     private $conn;
     private $table_name = "country";
 
-    // model properties
     public $code;
     public $name;
 
@@ -15,7 +13,6 @@ class Country
         $this->conn = $db;
     }
 
-    // used by select drop-down list
     function read()
     {
         //select all data
@@ -32,7 +29,6 @@ class Country
         return $stmt;
     }
 
-    // used to read country name by its ID
     function readName()
     {
 

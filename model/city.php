@@ -6,7 +6,6 @@ class City
     private $conn;
     private $table_name = "city";
 
-    // model properties
     public $id;
     public $name;
     public $countrycode;

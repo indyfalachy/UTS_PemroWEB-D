@@ -12,7 +12,6 @@
  
 
 <script>
-// JavaScript for deleting city
 $(document).on('click', '.delete-model', function(){
  
     var id = $(this).attr('delete-id');

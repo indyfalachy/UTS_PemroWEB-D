@@ -1,17 +1,7 @@
 <?php
 $search_value=isset($search_term) ? "value='{$search_term}'" : "";
-// search form
 ?>
 
-<!-- <form role='search' action='search.php'>
-    <div class='input-group col-md-3 pull-left margin-right-1em'>
-
-        <input type='text' class='form-control' placeholder='Type city name or description...' name='s' id='srch-term' required <?= $search_value ?> />
-        <div class='input-group-btn'>
-            <button class='btn btn-primary' type='submit'><i class='glyphicon glyphicon-search'></i></button>
-        </div>
-    </div>
-</form> -->
 
 <?php 
 // create city button
@@ -76,11 +66,9 @@ if($total_rows>0){
  
     echo "</table>";
  
-    // paging buttons
     include_once 'paging.php';
 }
  
-// tell the user there are no citys
 else{
     echo "<div class='alert alert-danger'>No citys found.</div>";
 }

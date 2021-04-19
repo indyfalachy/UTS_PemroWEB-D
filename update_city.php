@@ -1,47 +1,35 @@
 <?php
-// retrieve one city will be here
-// get ID of the city to be edited
+
 $id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
 
-// include database and model files
 include_once 'config/database.php';
 include_once 'model/country.php';
 include_once 'model/city.php';
  
-// instantiate database and city model
 $database = new Database();
 $db = $database->getConnection();
  
 $city = new City($db);
 $country = new Country($db);
 
-// set ID property of city to be edited
 $city->id = $id;
 
-// read the details of city to be edited
 $city->readOne();
 
 
-
-// set page header
 $page_title = "Update city";
 include_once "layout_header.php";
 
 
-
-// contents will be here
 echo "<div class='right-button-margin'>";
 echo "<a href='index.php' class='btn btn-primary pull-right'><span class='glyphicon glyphicon-list'></span> Read City</a>";
 echo "</div>";
 ?>
 
-<!-- 'update city' form will be here -->
-<!-- post code will be here -->
+
 <?php
-// if the form was submitted
 if ($_POST) {
 
- // set city property values
  $city->name = $_POST['name'];
  $city->district = $_POST['district'];
  $city->population = $_POST['population'];
@@ -54,7 +42,6 @@ if ($_POST) {
     $errorMsg=  "error : Please enter number.";
     $code= "2";
   }
-  //check if the number field is numeric
   elseif(is_numeric(trim($city->population)) == false){
     $errorMsg=  "error : Please enter numeric value.";
     $code= "2";
@@ -67,7 +54,6 @@ if ($_POST) {
     $code= "4";
   } 
 else{
-  //final code will execute here.
 // update the city
 if ($city->update()) {
     echo "<div class='alert alert-success alert-dismissable'>";
@@ -75,7 +61,6 @@ if ($city->update()) {
     echo "</div>";
 }
 
-// if unable to update the city, tell the user
 else {
     echo "<div class='alert alert-danger alert-dismissable'>";
     echo "Unable to update city.";
@@ -121,7 +106,6 @@ else {
                 <?php
                 $stmt = $country->read();
 
-                // put them in a select drop-down
                 echo "<select class='form-control' name='countrycode'>";
 
                 echo "<option>Please select...</option>";
@@ -129,7 +113,6 @@ else {
                     $countrycode = $row_country['code'];
                     $country_name = $row_country['name'];
 
-                    // current country of the city must be selected
                     if ($city->countrycode == $countrycode) {
                         echo "<option value='$countrycode' selected>";
                     } else {
