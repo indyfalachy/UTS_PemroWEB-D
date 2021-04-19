@@ -110,16 +110,18 @@ else {
 
                 echo "<option>Please select...</option>";
                 while ($row_country = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    $countrycode = $row_country['code'];
-                    $country_name = $row_country['name'];
-
-                    if ($city->countrycode == $countrycode) {
-                        echo "<option value='$countrycode' selected>";
+                    // $countrycode = $row_country['code'];
+                    // $country_name = $row_country['name'];
+                    $a=$row_country['code'];
+                    $b=$row_country['name'];
+                      echo "<option value='{$a}'>{$b}</option>";
+                    if ($city->countrycode == $a) {
+                        echo "<option value='{$a}' selected>";
                     } else {
-                        echo "<option value='$countrycode'>";
+                        echo "<option value='{$a}'>";
                     }
 
-                    echo "$country_name</option>";
+                    echo "{$b}</option>";
                 }
                 echo "</select>";
                 ?>

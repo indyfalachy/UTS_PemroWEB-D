@@ -120,8 +120,9 @@ else{
                 echo "<option value='0'>Select country...</option>";
 
                 while ($row_country = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    var_dump($row_country);
-                    echo "<option value='{$row_country['code']}'>{$row_country['name']}</option>";
+                  $a=$row_country['code'];
+                  $b=$row_country['name'];
+                    echo "<option value='{$a}'>{$b}</option>";
                 }
 
                 echo "</select>";
